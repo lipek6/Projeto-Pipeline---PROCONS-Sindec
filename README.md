@@ -39,12 +39,12 @@ O modelo dimensional será estruturado da seguinte forma (sujeito a alterações
 
 | Tabela | Tipo | Descrição |
 | :--- | :--- | :--- |
-| **`NOME_TABELA`** | **TIPO** | DESCRIÇÃO DESCRIÇÃO DESCRIÇÃO DESCRIÇÃO DESCRIÇÃO. |
-| **`NOME_TABELA`** | TIPO | DESCRIÇÃO DESCRIÇÃO DESCRIÇÃO DESCRIÇÃO DESCRIÇÃO. |
-| **`NOME_TABELA`** | TIPO | DESCRIÇÃO DESCRIÇÃO DESCRIÇÃO DESCRIÇÃO DESCRIÇÃO. |
-| **`NOME_TABELA`** | TIPO | DESCRIÇÃO DESCRIÇÃO DESCRIÇÃO DESCRIÇÃO DESCRIÇÃO. |
-| **`NOME_TABELA`** | TIPO | DESCRIÇÃO DESCRIÇÃO DESCRIÇÃO DESCRIÇÃO DESCRIÇÃO. |
-| **`NOME_TABELA`** | TIPO | DESCRIÇÃO DESCRIÇÃO DESCRIÇÃO DESCRIÇÃO DESCRIÇÃO. |
+| **`fato_reclamacao`** | **Fato** | Registro central de cada reclamação fundamentada (Métricas, status de resolução e chaves estrangeiras). |
+| **`dim_consumidor`** | Dimensão | Perfil demográfico de quem abriu a reclamação (Faixa etária, Sexo). |
+| **`dim_fornecedor`** | Dimensão | Dados da empresa acionada (Nome, Segmento de mercado). |
+| **`dim_problema`** | Dimensão | Detalhamento do assunto e o tipo de problema relatado. |
+| **`dim_localidade`** | Dimensão | Informações geográficas do Procon onde a reclamação foi registrada (Estado, Região). |
+| **`dim_tempo`** | Dimensão | Calendário detalhado da data de abertura/finalização da reclamação. |
 
 ---
 
