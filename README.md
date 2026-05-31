@@ -6,6 +6,8 @@ Este projeto implementa e compara duas arquiteturas fundamentais de Engenharia d
 
 O diferencial deste projeto é a construção de um Data Warehouse modelado em **Esquema Estrela (Star Schema)**, transformando registros brutos em uma base otimizada para análises e geração de insights sobre os direitos do consumidor no Brasil.
 
+[Relatório do projeto](https://docs.google.com/document/d/1CEC-qFgPMvfstR0rMVG1PqwhZJ5EF8Lbp4vXveIZ3nE/edit?usp=sharing)
+
 ---
 
 ## 🎯 Objetivo e Fonte de Dados
