@@ -1,0 +1,91 @@
+[0m18:13:28.769173 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a6e04119d60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a6e0626d8b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a6e03e1f770>]}
+
+
+============================== 18:13:28.772104 | 69a1e459-86b9-4768-bcd5-2be37c09afd8 ==============================
+[0m18:13:28.772104 [info ] [MainThread]: Running with dbt=1.8.9
+[0m18:13:28.772653 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'profiles_dir': '/home/fald/.dbt', 'log_path': 'logs', 'fail_fast': 'False', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'invocation_command': 'dbt init projeto_dbt_procons', 'introspect': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m18:13:28.782642 [debug] [MainThread]: Starter project path: /home/fald/Projeto-Pipeline---PROCONS-Sindec/.venv/lib/python3.12/site-packages/dbt/include/starter_project
+[0m18:13:28.785650 [info ] [MainThread]: 
+Your new dbt project "projeto_dbt_procons" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m18:13:28.786267 [info ] [MainThread]: Setting up your profile.
+[0m18:14:29.448035 [info ] [MainThread]: Profile projeto_dbt_procons written to /home/fald/.dbt/profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m18:14:29.448990 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 60.717117, "process_in_blocks": "15368", "process_kernel_time": 0.166876, "process_mem_max_rss": "101396", "process_out_blocks": "88", "process_user_time": 1.203107}
+[0m18:14:29.449518 [debug] [MainThread]: Command `dbt init` succeeded at 18:14:29.449435 after 60.72 seconds
+[0m18:14:29.449880 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a6e032416a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a6e031ef9b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a6e042c8b60>]}
+[0m18:14:29.450237 [debug] [MainThread]: Flushing usage events
+[0m18:14:45.213692 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f788aae7d40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f788c2324b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f788c232d20>]}
+
+
+============================== 18:14:45.216966 | cfc2e60a-ed23-40e8-86b5-958adeff5079 ==============================
+[0m18:14:45.216966 [info ] [MainThread]: Running with dbt=1.8.9
+[0m18:14:45.217616 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/home/fald/.dbt', 'fail_fast': 'False', 'debug': 'False', 'log_path': 'logs', 'version_check': 'True', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'static_parser': 'True', 'invocation_command': 'dbt debug', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m18:14:45.227357 [info ] [MainThread]: dbt version: 1.8.9
+[0m18:14:45.227916 [info ] [MainThread]: python version: 3.12.3
+[0m18:14:45.228432 [info ] [MainThread]: python path: /home/fald/Projeto-Pipeline---PROCONS-Sindec/.venv/bin/python3
+[0m18:14:45.228916 [info ] [MainThread]: os info: Linux-6.17.0-29-generic-x86_64-with-glibc2.39
+[0m18:14:45.283504 [info ] [MainThread]: Using profiles dir at /home/fald/.dbt
+[0m18:14:45.284025 [info ] [MainThread]: Using profiles.yml file at /home/fald/.dbt/profiles.yml
+[0m18:14:45.284436 [info ] [MainThread]: Using dbt_project.yml file at /home/fald/Projeto-Pipeline---PROCONS-Sindec/dbt_project.yml
+[0m18:14:45.284913 [error] [MainThread]: Encountered an error:
+Internal Error
+  Profile should not be None if loading profile completed
+[0m18:14:45.285786 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 0.11219586, "process_in_blocks": "0", "process_kernel_time": 0.143779, "process_mem_max_rss": "102776", "process_out_blocks": "8", "process_user_time": 1.183184}
+[0m18:14:45.286264 [debug] [MainThread]: Command `dbt debug` failed at 18:14:45.286185 after 0.11 seconds
+[0m18:14:45.286632 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f788acf4d70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f788a687710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f788d749a00>]}
+[0m18:14:45.286993 [debug] [MainThread]: Flushing usage events
+[0m18:15:42.576006 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71635257e3f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x716352f64bc0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7163535a0230>]}
+
+
+============================== 18:15:42.579279 | 11d70177-b79e-4931-91c6-17f58b170334 ==============================
+[0m18:15:42.579279 [info ] [MainThread]: Running with dbt=1.8.9
+[0m18:15:42.579869 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'logs', 'profiles_dir': '/home/fald/.dbt', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'target_path': 'None', 'invocation_command': 'dbt debug', 'send_anonymous_usage_stats': 'True'}
+[0m18:15:42.591256 [info ] [MainThread]: dbt version: 1.8.9
+[0m18:15:42.592054 [info ] [MainThread]: python version: 3.12.3
+[0m18:15:42.592837 [info ] [MainThread]: python path: /home/fald/Projeto-Pipeline---PROCONS-Sindec/.venv/bin/python3
+[0m18:15:42.593629 [info ] [MainThread]: os info: Linux-6.17.0-29-generic-x86_64-with-glibc2.39
+[0m18:15:42.666118 [info ] [MainThread]: Using profiles dir at /home/fald/.dbt
+[0m18:15:42.666683 [info ] [MainThread]: Using profiles.yml file at /home/fald/.dbt/profiles.yml
+[0m18:15:42.667056 [info ] [MainThread]: Using dbt_project.yml file at /home/fald/Projeto-Pipeline---PROCONS-Sindec/dbt_project.yml
+[0m18:15:42.667486 [error] [MainThread]: Encountered an error:
+Internal Error
+  Profile should not be None if loading profile completed
+[0m18:15:42.668524 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 0.13378316, "process_in_blocks": "0", "process_kernel_time": 0.149991, "process_mem_max_rss": "102708", "process_out_blocks": "8", "process_user_time": 1.171936}
+[0m18:15:42.669211 [debug] [MainThread]: Command `dbt debug` failed at 18:15:42.669104 after 0.13 seconds
+[0m18:15:42.669702 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7163527278c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7163517142f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7163525d9f10>]}
+[0m18:15:42.670181 [debug] [MainThread]: Flushing usage events
+[0m18:15:49.214531 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d030d170740>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d030cad9970>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d030d171640>]}
+
+
+============================== 18:15:49.217729 | a4e74d6e-503b-451d-b6dd-c9dcc81e6cd6 ==============================
+[0m18:15:49.217729 [info ] [MainThread]: Running with dbt=1.8.9
+[0m18:15:49.218287 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/home/fald/.dbt', 'version_check': 'True', 'debug': 'False', 'log_path': 'logs', 'fail_fast': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'introspect': 'True', 'invocation_command': 'dbt init projeto_dbt_procons', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m18:15:49.227526 [info ] [MainThread]: A project called projeto_dbt_procons already exists here.
+[0m18:15:49.228551 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 0.05135416, "process_in_blocks": "0", "process_kernel_time": 0.138903, "process_mem_max_rss": "98380", "process_out_blocks": "0", "process_user_time": 1.090246}
+[0m18:15:49.229191 [debug] [MainThread]: Command `dbt init` succeeded at 18:15:49.229060 after 0.05 seconds
+[0m18:15:49.229671 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d030c03af00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d030f1817f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d030c3d8bc0>]}
+[0m18:15:49.230251 [debug] [MainThread]: Flushing usage events
+[0m18:16:04.045196 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x731c222ae5d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x731c20e57620>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x731c20cb7b30>]}
+
+
+============================== 18:16:04.048232 | 178c2426-19db-4365-9e43-191f3c78dcaa ==============================
+[0m18:16:04.048232 [info ] [MainThread]: Running with dbt=1.8.9
+[0m18:16:04.048835 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'logs', 'profiles_dir': '/home/fald/.dbt', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'target_path': 'None', 'invocation_command': 'dbt init projeto_dbt_procons', 'send_anonymous_usage_stats': 'True'}
+[0m18:16:04.058357 [info ] [MainThread]: A project called projeto_dbt_procons already exists here.
+[0m18:16:04.059434 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 0.05192866, "process_in_blocks": "0", "process_kernel_time": 0.131949, "process_mem_max_rss": "98404", "process_out_blocks": "8", "process_user_time": 1.179546}
+[0m18:16:04.060198 [debug] [MainThread]: Command `dbt init` succeeded at 18:16:04.060036 after 0.05 seconds
+[0m18:16:04.060749 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x731c202cee40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x731c20c4bdd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x731c2039f800>]}
+[0m18:16:04.061310 [debug] [MainThread]: Flushing usage events
