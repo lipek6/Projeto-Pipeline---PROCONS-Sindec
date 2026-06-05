@@ -1,3 +1,5 @@
+-- PARA RODAR ISSO AQUI: dbt run --select stg_reclamacoes_unificados
+
 select
     *,
     '2009' as ano_origem 
