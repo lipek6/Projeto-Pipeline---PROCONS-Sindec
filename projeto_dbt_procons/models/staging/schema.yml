@@ -1,0 +1,28 @@
+version: 2
+
+sources:
+
+  - name: dados_brutos_procon
+
+    database: procons_sindec
+    schema: public
+    
+    tables:
+      - name: raw_procons_2009
+      - name: raw_procons_2010
+      - name: raw_procons_2011
+      - name: raw_procons_2012
+      - name: raw_procons_2013
+      - name: raw_procons_2014
+      - name: raw_procons_2015
+      - name: raw_procons_2016
+      - name: raw_procons_2017
+      - name: raw_procons_2018
+      - name: raw_procons_2019
+      - name: raw_procons_2020
+      - name: raw_procons_2021
+      - name: raw_procons_2022
+      - name: raw_procons_2023
+      - name: raw_procons_2024
+      - name: raw_procons_2023
+      - name: raw_procons_2024
