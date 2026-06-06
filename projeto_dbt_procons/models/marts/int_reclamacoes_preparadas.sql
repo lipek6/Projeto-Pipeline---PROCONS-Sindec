@@ -17,17 +17,56 @@ limpeza_e_padronizacao AS (
     SELECT
         -- 1. Descarte do 'anocalendario': 
         -- Em SQL, para eliminar uma coluna, basta não a colocar no SELECT.
-        dataarquivamento,
-        dataabertura,
+
+        -- 1.2 Conversão do tipo das datas em formatos diferentes (mixed) para YYYY-MM-DD 00:00:00
+        CASE
+            WHEN dataarquivamento ~ '^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d+$'
+                THEN dataarquivamento::timestamp
+
+            WHEN dataarquivamento ~ '^\d{2}/\d{2}/\d{4} \d{2}:\d{2}$'
+                THEN to_timestamp(
+                    dataarquivamento,
+                    'DD/MM/YYYY HH24:MI'
+                )
+
+            ELSE NULL
+        END AS dataarquivamento,
+
+        CASE
+            WHEN dataabertura ~ '^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d+$'
+                THEN dataabertura::timestamp
+
+            WHEN dataabertura ~ '^\d{2}/\d{2}/\d{4} \d{2}:\d{2}$'
+                THEN to_timestamp(
+                    dataabertura,
+                    'DD/MM/YYYY HH24:MI'
+                )
+
+            ELSE NULL
+        END AS dataabertura,
 
         -- 2. Padronização do 'codigoregiao' (0X -> X):
         -- A função LTRIM remove caracteres específicos à esquerda. LTRIM('01', '0') resulta em '1'.
-        LTRIM(codigoregiao, '0') AS codigoregiao,
+        -- Também se converte o tipo para inteiro
+
+        CASE
+            WHEN (LTRIM(codigoregiao, '0') AS codigoregiao) ~ '^-?\d+$'
+                THEN (LTRIM(codigoregiao, '0') AS codigoregiao)::bigint
+                ELSE NULL
+        END AS codigoregiao,
+
         regiao,
         uf,
         strrazaosocial,
         strnomefantasia,
-        tipo,
+
+        -- Converte-se para inteiro
+        CASE
+            WHEN tipo ~ '^-?\d+$'
+                THEN coluna_texto::bigint
+                ELSE NULL
+        END AS tipo,
+
         numerocnpj,
         radicalcnpj,
         razaosocialrfb,
@@ -35,9 +74,23 @@ limpeza_e_padronizacao AS (
         cnaeprincipal,
         desccnaeprincipal,
         atendida,
-        codigoassunto,
+
+        -- Converte-se para inteiro
+        CASE
+            WHEN codigoassunto ~ '^-?\d+$'
+                THEN coluna_texto::bigint
+                ELSE NULL
+        END AS codigoassunto,
+
         descricaoassunto,
-        codigoproblema,
+
+        -- Converte-se para inteiro
+        CASE
+            WHEN codigoproblema ~ '^-?\d+$'
+                THEN coluna_texto::bigint
+                ELSE NULL
+        END AS codigoproblema,
+
         descricaoproblema,
 
         -- 3. Padronização do 'sexoconsumidor' (N ou Nulo -> OUTROS):
@@ -60,7 +113,13 @@ limpeza_e_padronizacao AS (
         END AS faixaetariaconsumidor,
 
         cepconsumidor,
-        ano_origem
+
+        -- Converte-se para inteiro
+        CASE
+            WHEN ano_origem ~ '^-?\d+$'
+                THEN coluna_texto::bigint
+                ELSE NULL
+        END AS ano_origem
 
     FROM stg_reclamacoes
 
