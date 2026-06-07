@@ -1,6 +1,3 @@
--- PARA RODAR ISSO AQUI: dbt run --select int_reclamacoes_preparadas
-
-
 -- O nosso primeiro passo será guardar este modelo como uma 'view' ou 'table'
 {{
     config(
@@ -15,44 +12,29 @@ WITH stg_reclamacoes AS (
 
 limpeza_e_padronizacao AS (
     SELECT
-        -- 1. Descarte do 'anocalendario': 
-        -- Em SQL, para eliminar uma coluna, basta não a colocar no SELECT.
-
         -- 1.2 Conversão do tipo das datas em formatos diferentes (mixed) para YYYY-MM-DD 00:00:00
         CASE
             WHEN dataarquivamento ~ '^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d+$'
                 THEN dataarquivamento::timestamp
-
             WHEN dataarquivamento ~ '^\d{2}/\d{2}/\d{4} \d{2}:\d{2}$'
-                THEN to_timestamp(
-                    dataarquivamento,
-                    'DD/MM/YYYY HH24:MI'
-                )
-
+                THEN to_timestamp(dataarquivamento, 'DD/MM/YYYY HH24:MI')
             ELSE NULL
         END AS dataarquivamento,
 
         CASE
             WHEN dataabertura ~ '^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d+$'
                 THEN dataabertura::timestamp
-
             WHEN dataabertura ~ '^\d{2}/\d{2}/\d{4} \d{2}:\d{2}$'
-                THEN to_timestamp(
-                    dataabertura,
-                    'DD/MM/YYYY HH24:MI'
-                )
-
+                THEN to_timestamp(dataabertura, 'DD/MM/YYYY HH24:MI')
             ELSE NULL
         END AS dataabertura,
 
         -- 2. Padronização do 'codigoregiao' (0X -> X):
-        -- A função LTRIM remove caracteres específicos à esquerda. LTRIM('01', '0') resulta em '1'.
-        -- Também se converte o tipo para inteiro
-
+        -- A função LTRIM remove caracteres específicos à esquerda.
         CASE
-            WHEN (LTRIM(codigoregiao, '0') AS codigoregiao) ~ '^-?\d+$'
-                THEN (LTRIM(codigoregiao, '0') AS codigoregiao)::bigint
-                ELSE NULL
+            WHEN LTRIM(codigoregiao, '0') ~ '^-?\d+$'
+                THEN LTRIM(codigoregiao, '0')::bigint
+            ELSE NULL
         END AS codigoregiao,
 
         regiao,
@@ -60,11 +42,11 @@ limpeza_e_padronizacao AS (
         strrazaosocial,
         strnomefantasia,
 
-        -- Converte-se para inteiro
+        -- Conversão para inteiro
         CASE
             WHEN tipo ~ '^-?\d+$'
-                THEN coluna_texto::bigint
-                ELSE NULL
+                THEN tipo::bigint
+            ELSE NULL
         END AS tipo,
 
         numerocnpj,
@@ -75,20 +57,20 @@ limpeza_e_padronizacao AS (
         desccnaeprincipal,
         atendida,
 
-        -- Converte-se para inteiro
+        -- Conversão para inteiro
         CASE
             WHEN codigoassunto ~ '^-?\d+$'
-                THEN coluna_texto::bigint
-                ELSE NULL
+                THEN codigoassunto::bigint
+            ELSE NULL
         END AS codigoassunto,
 
         descricaoassunto,
 
-        -- Converte-se para inteiro
+        -- Conversão para inteiro
         CASE
             WHEN codigoproblema ~ '^-?\d+$'
-                THEN coluna_texto::bigint
-                ELSE NULL
+                THEN codigoproblema::bigint
+            ELSE NULL
         END AS codigoproblema,
 
         descricaoproblema,
@@ -114,17 +96,16 @@ limpeza_e_padronizacao AS (
 
         cepconsumidor,
 
-        -- Converte-se para inteiro
+        -- Conversão para inteiro
         CASE
             WHEN ano_origem ~ '^-?\d+$'
-                THEN coluna_texto::bigint
-                ELSE NULL
+                THEN ano_origem::bigint
+            ELSE NULL
         END AS ano_origem
 
     FROM stg_reclamacoes
 
-    -- 5. Limpeza Global de Ruídos e Edge Cases (O dropna do Pandas):
-    -- No SQL, usamos a cláusula WHERE para filtrar apenas as linhas onde estas colunas não são nulas.
+    -- 5. Limpeza Global de Ruídos e Edge Cases
     WHERE
         codigoregiao IS NOT NULL
         AND regiao IS NOT NULL
