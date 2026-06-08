@@ -17,4 +17,4 @@ SELECT
     row_number() OVER (ORDER BY sexoconsumidor, faixaetariaconsumidor) AS id_consumidor_sk,
     sexoconsumidor,
     faixaetariaconsumidor
-FROM distinct_consumidor;
+FROM distinct_consumidor

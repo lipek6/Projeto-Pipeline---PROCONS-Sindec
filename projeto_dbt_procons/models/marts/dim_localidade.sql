@@ -23,4 +23,4 @@ SELECT
     regiao,
     uf,
     cepconsumidor
-FROM distinct_localidade;
+FROM distinct_localidade

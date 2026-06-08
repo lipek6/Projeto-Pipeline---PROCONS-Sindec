@@ -16,4 +16,4 @@ SELECT
     row_number() OVER (ORDER BY codigoproblema, descricaoproblema) AS id_problema_sk,
     codigoproblema,
     descricaoproblema
-FROM distinct_problema;
+FROM distinct_problema

@@ -19,4 +19,4 @@ SELECT
     EXTRACT(YEAR FROM dataabertura) AS ano,
     EXTRACT(QUARTER FROM dataabertura) AS trimestre,
     TO_CHAR(dataabertura, 'Day') AS dia_semana
-FROM distinct_tempo;
+FROM distinct_tempo

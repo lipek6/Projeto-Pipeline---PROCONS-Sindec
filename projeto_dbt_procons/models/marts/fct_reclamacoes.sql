@@ -24,4 +24,4 @@ LEFT JOIN {{ ref('dim_fornecedor') }} f USING (numerocnpj, radicalcnpj, razaosoc
 LEFT JOIN {{ ref('dim_assunto') }} a USING (codigoassunto, descricaoassunto)
 LEFT JOIN {{ ref('dim_problema') }} p USING (codigoproblema, descricaoproblema)
 LEFT JOIN {{ ref('dim_localidade') }} l USING (codigoregiao, regiao, uf, cepconsumidor)
-LEFT JOIN {{ ref('dim_tempo') }} t USING (dataabertura);
+LEFT JOIN {{ ref('dim_tempo') }} t USING (dataabertura)

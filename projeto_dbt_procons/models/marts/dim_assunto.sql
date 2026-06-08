@@ -16,4 +16,4 @@ SELECT
     row_number() OVER (ORDER BY codigoassunto, descricaoassunto) AS id_assunto_sk,
     codigoassunto,
     descricaoassunto
-FROM distinct_assunto;
+FROM distinct_assunto

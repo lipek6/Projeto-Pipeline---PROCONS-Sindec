@@ -24,4 +24,4 @@ SELECT
     nomefantasiarfb,
     cnaeprincipal,
     desccnaeprincipal
-FROM distinct_fornecedor;
+FROM distinct_fornecedor
