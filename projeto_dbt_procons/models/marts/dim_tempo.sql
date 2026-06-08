@@ -12,11 +12,19 @@ WITH distinct_tempo AS (
 )
 
 SELECT
-    row_number() OVER (ORDER BY dataabertura) AS id_tempo_sk,
-    dataabertura,
-    EXTRACT(DAY FROM dataabertura) AS dia,
-    EXTRACT(MONTH FROM dataabertura) AS mes,
-    EXTRACT(YEAR FROM dataabertura) AS ano,
-    EXTRACT(QUARTER FROM dataabertura) AS trimestre,
-    TO_CHAR(dataabertura, 'Day') AS dia_semana
+    row_number() OVER (ORDER BY dataabertura)::INT AS id_tempo_sk,
+    dataabertura::timestamp AS dataabertura,
+    EXTRACT(DAY FROM dataabertura)::INT AS dia,
+    EXTRACT(MONTH FROM dataabertura)::INT AS mes,
+    EXTRACT(YEAR FROM dataabertura)::INT AS ano,
+    EXTRACT(QUARTER FROM dataabertura)::INT AS trimestre,
+    CASE EXTRACT(DOW FROM dataabertura)::INT
+        WHEN 0 THEN 'domingo'
+        WHEN 1 THEN 'segunda-feira'
+        WHEN 2 THEN 'terça-feira'
+        WHEN 3 THEN 'quarta-feira'
+        WHEN 4 THEN 'quinta-feira'
+        WHEN 5 THEN 'sexta-feira'
+        WHEN 6 THEN 'sábado'
+    END AS dia_semana
 FROM distinct_tempo
