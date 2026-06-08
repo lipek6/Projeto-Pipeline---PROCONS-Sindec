@@ -1,4 +1,3 @@
--- O nosso primeiro passo será guardar este modelo como uma 'view' ou 'table'
 {{
     config(
         materialized='view'
@@ -6,8 +5,7 @@
 }}
 
 WITH stg_reclamacoes AS (
-    -- Importamos o modelo de staging unificado
-    SELECT * FROM {{ ref('stg_reclamacoes_unificados') }} 
+    SELECT * FROM {{ ref('stg_reclamacoes_unificados') }}
 ),
 
 limpeza_e_padronizacao AS (
@@ -119,4 +117,4 @@ limpeza_e_padronizacao AS (
         AND descricaoassunto IS NOT NULL
 )
 
-SELECT * FROM limpeza_e_padronizacao
+SELECT * FROM limpeza_e_padronizacao;
